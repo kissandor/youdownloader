@@ -1,7 +1,9 @@
 from django.urls import path
+from download import views
 
-from . import views
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", views.home, name="home"),
+    path('test/', views.test_view),
+    path('index/', views.index)
 ]

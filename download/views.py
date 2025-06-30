@@ -3,9 +3,9 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return render(request, "download/index.html")
 
-def home(request):
+def download(request):
     return render(request, "download/download.html")
 
 def test_view(request):

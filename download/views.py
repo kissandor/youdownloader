@@ -7,6 +7,3 @@ def index(request):
 
 def download(request):
     return render(request, "download/download.html")
-
-def test_view(request):
-    return render(request, "download/test.html")

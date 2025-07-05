@@ -5,13 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="{% static 'download/css/download.css' %}">
-   <script src="{% static 'your_app/js/download.js' %}"></script>
+   <script src="{% static 'download/js/download.js' %}"></script>
   <title>Download</title>
 </head>
 <body>
+
    <div class="loading">
-        <p >Preparing for download...</p>
-        <div class="loader"></div>
+    
+        <p id="status">Preparing for download...</p>
+        <a href="" id="download-link" download>Click to download</a>
+        <div class="loader" id="loader"></div>
+        
     </div>
 </body>
 </html>

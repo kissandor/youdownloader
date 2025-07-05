@@ -7,11 +7,12 @@ const intervalId = setInterval(() => {
         .then(data => {
             if (data.ready) {
                 clearInterval(intervalId);
-                document.getElementById("status").textContent = "Letöltés kész!";
+                document.getElementById("loader").style.display="none";
+                document.getElementById("status").textContent = "File is ready to download from the below link: ";
                 document.getElementById("download-link").href = `/media/downloads/${filename}`;
                 document.getElementById("download-link").style.display = "inline-block";
             } else {
-                document.getElementById("status").textContent = "Készül a videó...";
+                document.getElementById("status").textContent = "Preparing for download...";
             }
         });
-}, 3000); // 3 másodpercenként ellenőriz
+}, 5000); // 3 másodpercenként ellenőriz

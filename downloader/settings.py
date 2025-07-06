@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g4-c=3+l^_!0@9pzq6hmmpqq%916t%_4(f$(ye!75f(^-)(47n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['youdownloader-nc51.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['youdownloader-nc51.onrender.com', 'localhost', '127.0.0.1', "youdownloader-production-cae1.up.railway.app"]
 
 
 # Application definition

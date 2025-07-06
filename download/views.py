@@ -66,6 +66,11 @@ def download_media(link, download_file_type='m4a'):
 
     output_path = os.path.join(
         settings.MEDIA_ROOT, 'downloads', download_file_type)
+    
+    print("MEDIA_ROOT:", settings.MEDIA_ROOT)
+    print("Letöltési mappa:", output_path)
+    
+    os.makedirs(output_path, exist_ok=True)
     # Alap beállítások (közösek)
     ydl_opts = {
         'outtmpl': f'{output_path}/%(title)s.%(ext)s',

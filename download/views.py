@@ -34,13 +34,19 @@ def index(request):
 
         try:
             file_path = download_media(video_url, video_format)
+            print("file_path: " + file_path)
             filename = os.path.basename(file_path)
+            print("filename: " + filename)
             media_rel_path = os.path.relpath(file_path, settings.MEDIA_ROOT)
+            print("media_rel_path: " + media_rel_path)
             download_url = settings.MEDIA_URL + \
                 media_rel_path.replace('\\', '/')
+            print("download_url: " + download_url)
 
             url = reverse('download:success')
+            print("url: " + url)
             params = urlencode({'file': filename, 'url': download_url})
+            print("params: " + params)
             return redirect(f"{url}?{params}")
 
         except Exception as e:

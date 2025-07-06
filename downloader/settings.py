@@ -126,4 +126,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-CSRF_TRUSTED_ORIGINS = ["https://youdownloader-nc51.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://youdownloader-nc51.onrender.com", 'https://youdownloader-production-cae1.up.railway.app',]

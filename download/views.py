@@ -1,10 +1,21 @@
 import os
+import re
+import unicodedata
 from urllib.parse import urlencode
 from django.conf import settings
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 from django.urls import reverse
 import yt_dlp
+
+def sanitize_filename(name, max_length=100):
+    # Ékezetek eltávolítása
+    name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode("ascii")
+    # Tiltott karakterek kiszűrése
+    name = re.sub(r'[^\w\s.-]', '', name)
+    # Szóközök helyett _
+    name = re.sub(r'\s+', '_', name)
+    return name[:max_length]
 
 
 def download(request):
@@ -27,7 +38,7 @@ def index(request):
     if request.method == 'POST':
         video_url = request.POST.get('inputUrl')
         # video_format = request.POST.get('radio_format')
-        video_format = 'm4a'
+        video_format = 'mp4'
 
         if not video_url:
             return HttpResponse("Nem adtál meg URL-t!", status=400)
@@ -79,7 +90,7 @@ def download_media(link, download_file_type='m4a'):
     os.makedirs(output_path, exist_ok=True)
     # Alap beállítások (közösek)
     ydl_opts = {
-        'outtmpl': f'{output_path}/%(title)s.%(ext)s',
+        'outtmpl': f'{output_path}/%(id)s.%(ext)s',
         'quiet': False,
         'noplaylist': True,
     }
